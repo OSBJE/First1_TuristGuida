@@ -3,6 +3,7 @@ package tourism.repository;
 import org.springframework.stereotype.Repository;
 import org.w3c.dom.ls.LSOutput;
 import tourism.model.TouristAttraction;
+import tourism.service.TouristService;
 
 import java.sql.SQLOutput;
 import java.util.*;
@@ -31,4 +32,28 @@ public class TouristRepository {
     public List<TouristAttraction> getListOfAttractions() {
         return listOfAttractions;
     }
+
+    public TouristAttraction getAttraction(String name){
+        TouristAttraction attraction = null;
+        for (TouristAttraction obj : listOfAttractions){
+            if (name == obj.getName()){
+                attraction = obj;
+            }
+        }
+
+        return attraction;
+    }
+
+    public String deleteAttraction(String name){
+        String deleteAttraction = "Not object was deleted";
+        for (TouristAttraction obj : listOfAttractions){
+            if (name == obj.getName()){
+                listOfAttractions.remove(obj);
+                deleteAttraction = obj.getName() + " was deleted";
+            }
+        }
+
+        return deleteAttraction;
+    }
+
 }

@@ -17,12 +17,30 @@ public class TouristService {
     }
 
 
-    public void addTouristAttraction(String name, String description){
-        touristRepository.addTouristAttraction(name, description);
+    // to create an new attraction
+    public TouristAttraction addTouristAttraction(TouristAttraction attraction){
+        TouristAttraction added = null;
+        touristRepository.addTouristAttraction(attraction.getName(),attraction.getDescription());
+        added = touristRepository.getAttraction(attraction.getName());
+        return added;
     }
 
+    // this is to the first get all attractions to the control
     public List<TouristAttraction> allTouristAttractions(){
         return touristRepository.getListOfAttractions();
+    }
+
+
+    // this is to get specific attraction to the controller.
+    public TouristAttraction getAttraction(String name){
+        return touristRepository.getAttraction(name);
+    }
+
+    //This is to update
+
+    // this is to delete
+    public String deleteAttraction(String name){
+        return touristRepository.deleteAttraction(name);
     }
 
 

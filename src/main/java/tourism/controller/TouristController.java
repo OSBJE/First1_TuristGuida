@@ -32,15 +32,17 @@ public class TouristController {
     // get /attractions/{name}
     @GetMapping("/attractions/{attractionName}")
     public ResponseEntity<TouristAttraction> getTouristAttraction(@PathVariable String name){
-        return null;
+        return new ResponseEntity<>(touristService.getAttraction(name), HttpStatus.OK);
     }
 
     // post /attractions/add
     @PostMapping("/attractions/add")
     public ResponseEntity<TouristAttraction> addTouristAttraction (@RequestBody TouristAttraction attraction){
-        return null;
+        TouristAttraction attractionToAdd = touristService.addTouristAttraction(attraction);
+        return new ResponseEntity<>(attractionToAdd, HttpStatus.CREATED );
     }
 
+    //TODO - this is not finished need to be made !!
     // post /attractions/update
     @PutMapping("/attractions/{attractionName}")
     public ResponseEntity<TouristAttraction> updateTouristAttraction (@PathVariable String name ){
@@ -50,8 +52,7 @@ public class TouristController {
     // post attractions/delete/{name}
     @DeleteMapping("/{attractionName}")
     public ResponseEntity<String> deleteTouristAttraction(@PathVariable String name){
-
-        return null;
+        return new ResponseEntity<>(touristService.deleteAttraction(name),HttpStatus.NO_CONTENT);
     }
 
 
