@@ -12,7 +12,7 @@ import java.util.*;
 public class TouristRepository {
 
 
-    private List<TouristAttraction> listOfAttractions;
+    private List<TouristAttraction> listOfAttractions = new ArrayList<>();
 
     public TouristRepository(){
         populateTouristList();
@@ -36,7 +36,7 @@ public class TouristRepository {
     public TouristAttraction getAttraction(String name){
         TouristAttraction attraction = null;
         for (TouristAttraction obj : listOfAttractions){
-            if (name == obj.getName()){
+            if (name.equals(obj.getName())){
                 attraction = obj;
             }
         }
