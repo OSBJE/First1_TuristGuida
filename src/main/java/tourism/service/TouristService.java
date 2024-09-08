@@ -38,6 +38,10 @@ public class TouristService {
 
     //This is to update
 
+    public String updateAttraction(String attraction, TouristAttraction obj){
+        return touristRepository.updateAttraction(attraction, obj);
+    }
+
     // this is to delete
     public String deleteAttraction(String name){
         return touristRepository.deleteAttraction(name);

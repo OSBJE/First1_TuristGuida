@@ -1,0 +1,10 @@
+###
+POST http://localhost:8080/welcome/add
+Content-Type: application/json
+
+{
+  "name": "Kanalen",
+  "description": "Et sted man kan sejle rund i båd"
+
+}
+

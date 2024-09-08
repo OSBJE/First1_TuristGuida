@@ -30,33 +30,37 @@ public class TouristController {
     }
 
     // get /attractions/{name}
-    @GetMapping("/{attractionName}")
+    @GetMapping("/attractions/{attractionName}")
     public ResponseEntity<TouristAttraction> getTouristAttraction(@PathVariable String attractionName){
         return new ResponseEntity<>(touristService.getAttraction(attractionName), HttpStatus.OK);
     }
 
     // post /attractions/add
-    @PostMapping("/add")
+    // Works tested with Testrequest1.http
+    @PostMapping("/attractions/add")
     public ResponseEntity<TouristAttraction> addTouristAttraction (@RequestBody TouristAttraction attraction){
         TouristAttraction attractionToAdd = touristService.addTouristAttraction(attraction);
         return new ResponseEntity<>(attractionToAdd, HttpStatus.CREATED );
     }
 
 
-    /*
-    //TODO - this is not finished need to be made !!
+
+
     // post /attractions/update
-    @PutMapping("/attractions/{attractionName}")
-    public ResponseEntity<TouristAttraction> updateTouristAttraction (@PathVariable String name ){
-        return null;
+    // not sure I can let it return an string when you update the obj, ill test it.
+    @PutMapping("/attractions/update/{attractionName}")
+    public ResponseEntity<String> updateTouristAttraction (@PathVariable String attractionName, @RequestBody TouristAttraction updateAttraction ){
+        return new ResponseEntity<>(touristService.updateAttraction(attractionName, updateAttraction), HttpStatus.OK);
     }
 
-     */
+
 
     // post attractions/delete/{name}
-    @DeleteMapping("/delete/{attractionName}")
-    public ResponseEntity<String> deleteTouristAttraction(@PathVariable String name){
-        return new ResponseEntity<>(touristService.deleteAttraction(name),HttpStatus.NO_CONTENT);
+    // tested this with PostMan and the method works, however you can not use an URL as it sends a get method
+    // and I have mapped it using a deleteMapping. Hence you need to send a delete request.
+    @DeleteMapping("/attractions/delete/{attractionName}")
+    public ResponseEntity<String> deleteTouristAttraction(@PathVariable String attractionName){
+        return new ResponseEntity<>(touristService.deleteAttraction(attractionName),HttpStatus.NO_CONTENT);
     }
 
 

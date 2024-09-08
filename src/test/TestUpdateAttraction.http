@@ -1,0 +1,9 @@
+PUT http://localhost:8080/welcome/attractions/update/Rundtårn
+Content-Type: application/json
+
+{
+  "name": "Rundtårn",
+  "description": "Virker den her test ?"
+
+}
+

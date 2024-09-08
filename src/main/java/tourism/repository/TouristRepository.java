@@ -44,12 +44,39 @@ public class TouristRepository {
         return attraction;
     }
 
+
+    public String updateAttraction(String attraction, TouristAttraction update){
+        String message = "nothing was updated";
+
+
+
+        String nameUpdate = update.getName();
+        String descriptionUpdate = update.getDescription();
+
+        for (TouristAttraction obj : listOfAttractions){
+            if (obj.getName().equals(attraction)) {
+                obj.setName(nameUpdate);
+                obj.setDescription(descriptionUpdate);
+                return "Attraction was updated";
+            }
+        }
+
+
+        return message;
+    }
+
+
+    //delete function
     public String deleteAttraction(String name){
         String deleteAttraction = "Not object was deleted";
-        for (TouristAttraction obj : listOfAttractions){
-            if (name == obj.getName()){
-                listOfAttractions.remove(obj);
-                deleteAttraction = obj.getName() + " was deleted";
+
+        List<TouristAttraction> list = listOfAttractions;
+        Iterator<TouristAttraction> iterator = list.iterator();
+
+        while (iterator.hasNext()){
+            TouristAttraction attraction = iterator.next();
+            if (attraction.getName().equals(name)){
+                iterator.remove();
             }
         }
 
