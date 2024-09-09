@@ -44,8 +44,6 @@ public class TouristController {
     }
 
 
-
-
     // post /attractions/update
     // not sure I can let it return an string when you update the obj, ill test it.
     @PutMapping("/attractions/update/{attractionName}")
@@ -60,7 +58,7 @@ public class TouristController {
     // and I have mapped it using a deleteMapping. Hence you need to send a delete request.
     @DeleteMapping("/attractions/delete/{attractionName}")
     public ResponseEntity<String> deleteTouristAttraction(@PathVariable String attractionName){
-        return new ResponseEntity<>(touristService.deleteAttraction(attractionName),HttpStatus.NO_CONTENT);
+        return new ResponseEntity<>(touristService.deleteAttraction(attractionName),HttpStatus.OK);
     }
 
 

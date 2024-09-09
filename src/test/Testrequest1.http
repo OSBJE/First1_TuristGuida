@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8080/welcome/add
+POST http://localhost:8080/welcome/attractions/add
 Content-Type: application/json
 
 {

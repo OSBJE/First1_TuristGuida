@@ -34,6 +34,12 @@ p{
     height: 300px; /* Adjust the height based on the image size */
 }
 
+.image-wrapper:has(:hover) .btn:not(:hover){
+    scale: 0.8;
+    opacity: 0.8;
+    filter: blur(4px)
+}
+
 .image-container img {
     width: 300px; /* Adjust size as needed */
     height: auto;
@@ -51,19 +57,58 @@ p{
     display: none; /* Hides scrollbar for WebKit browsers (Chrome, Safari) */
 }
 
-
-
-
-
-
-
-
-/* Image styling
- det her gør at billede er i midten.
-*/
-a {
+.btns {
     display: block;
-    margin: 10px auto;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    column-gap: 2rem;
+    background-color: var(--color-white-shade);
 }
+
+
+.btn {
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    cursor: pointer;
+    transition:
+        scale 0.25s ease-in,
+        opacity0.25s ease-in,
+        filter 0.25s ease-in;
+
+    &:hover{
+        scale: 1.2;
+    }
+
+    border: none;
+    border-radius: 35%;
+    width: 140px;
+    height: 80px;
+    font-size: 18px;
+}
+
+.btns{
+    display: grid; /* laver et nyt grid, for at display de 3 billeder*/
+    grid-template-columns: 1fr 1fr 1fr; /*definerer grid til at have 3 colums*/
+    gap: 20px;
+    grid-row: span;
+    grid-column: 1;
+}
+
+
+.btns:has(.btn:hover).btn:not(:hover){
+    salce: o.8;
+    opacity: 0.8;
+    filter: blur(4px);
+}
+
+:root {
+    --color-white-black: #f0f0f0; /* Light grey */
+    --color-white: #ffffff; /* White */
+    --color-white-shade: #f5f5f5;  /* Light grey or a shade of white */
+    --color-black: #000000;         /* Black */
+    --color-primary: #3498db;       /* A primary color (blue in this case) */
+    --color-accent: #e74c3c;        /* Accent color (red in this case) */
+}
+
+
+
+
+

@@ -48,8 +48,6 @@ public class TouristRepository {
     public String updateAttraction(String attraction, TouristAttraction update){
         String message = "nothing was updated";
 
-
-
         String nameUpdate = update.getName();
         String descriptionUpdate = update.getDescription();
 
@@ -68,7 +66,7 @@ public class TouristRepository {
 
     //delete function
     public String deleteAttraction(String name){
-        String deleteAttraction = "Not object was deleted";
+        String deleteAttraction = "object was deleted";
 
         List<TouristAttraction> list = listOfAttractions;
         Iterator<TouristAttraction> iterator = list.iterator();
